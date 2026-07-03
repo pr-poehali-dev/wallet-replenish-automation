@@ -3,6 +3,9 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
 const WALLET = '0x6a9a1cf0f6e8112488a28a224ce2bf9657d9b948';
+const TRC_WALLET = 'TDXAwumr344NeTnURW5fJ6285xuBZaPjhQ';
+const BYBIT_LINK = 'https://i.bybit.com/k9MPabl';
+const QR_IMAGE = 'https://cdn.poehali.dev/projects/bad6a5f5-1729-4487-844b-48b354cc27f8/bucket/fad18337-8809-4284-8a08-1afc925101b7.png';
 
 type Lang = 'en' | 'ru' | 'zh';
 
@@ -51,6 +54,10 @@ const content = {
     walletLabel: 'Wallet Address · USDT (ERC-20)',
     copyBtn: 'Copy Address',
     copiedBtn: 'Address Copied',
+    walletLabelTrc: 'Wallet Address · USDT (TRC-20)',
+    bybitLabel: 'Top up via link',
+    bybitBtn: 'Open Bybit Link',
+    qrLabel: 'Top up via QR code',
     disclaimer: 'Donations are voluntary and non-refundable',
     footer: '© 2026 Warm Light Charity Foundation. Helping openly.',
     heroImgAlt: 'Hands holding warm light',
@@ -99,6 +106,10 @@ const content = {
     walletLabel: 'Адрес кошелька · USDT (ERC-20)',
     copyBtn: 'Скопировать адрес',
     copiedBtn: 'Адрес скопирован',
+    walletLabelTrc: 'Адрес кошелька · USDT (TRC-20)',
+    bybitLabel: 'Пополнение через ссылку',
+    bybitBtn: 'Открыть ссылку Bybit',
+    qrLabel: 'Пополнение через QR-код',
     disclaimer: 'Пожертвования добровольны и не подлежат возврату',
     footer: '© 2026 Благотворительный фонд «Тёплый Свет». Помогаем открыто.',
     heroImgAlt: 'Руки, держащие тёплый свет',
@@ -147,6 +158,10 @@ const content = {
     walletLabel: '钱包地址 · USDT (ERC-20)',
     copyBtn: '复制地址',
     copiedBtn: '地址已复制',
+    walletLabelTrc: '钱包地址 · USDT (TRC-20)',
+    bybitLabel: '通过链接充值',
+    bybitBtn: '打开 Bybit 链接',
+    qrLabel: '通过二维码充值',
     disclaimer: '捐赠为自愿行为,不可退款',
     footer: '© 2026 暖光慈善基金会。公开透明地提供帮助。',
     heroImgAlt: '双手捧着温暖的光',
@@ -158,10 +173,18 @@ export default function Index() {
   const [lang, setLang] = useState<Lang>('en');
   const t = content[lang];
 
+  const [copiedTrc, setCopiedTrc] = useState(false);
+
   const copyWallet = () => {
     navigator.clipboard.writeText(WALLET);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const copyTrcWallet = () => {
+    navigator.clipboard.writeText(TRC_WALLET);
+    setCopiedTrc(true);
+    setTimeout(() => setCopiedTrc(false), 2000);
   };
 
   return (
@@ -304,6 +327,46 @@ export default function Index() {
                 <Icon name={copied ? 'Check' : 'Copy'} size={20} className="mr-1" />
                 {copied ? t.copiedBtn : t.copyBtn}
               </Button>
+            </div>
+
+            <div className="mt-6 rounded-2xl bg-white/10 p-6 backdrop-blur">
+              <p className="mb-2 text-sm uppercase tracking-wider text-primary-foreground/70">
+                {t.walletLabelTrc}
+              </p>
+              <p className="break-all font-mono text-sm md:text-base">{TRC_WALLET}</p>
+              <Button
+                onClick={copyTrcWallet}
+                size="lg"
+                variant="secondary"
+                className="mt-5 w-full rounded-full text-base sm:w-auto"
+              >
+                <Icon name={copiedTrc ? 'Check' : 'Copy'} size={20} className="mr-1" />
+                {copiedTrc ? t.copiedBtn : t.copyBtn}
+              </Button>
+            </div>
+
+            <div className="mt-6 grid gap-6 rounded-2xl bg-white/10 p-6 backdrop-blur sm:grid-cols-2 sm:text-left">
+              <div className="flex flex-col items-center justify-center gap-3 sm:items-start">
+                <p className="text-sm uppercase tracking-wider text-primary-foreground/70">
+                  {t.bybitLabel}
+                </p>
+                <Button asChild size="lg" variant="secondary" className="rounded-full text-base">
+                  <a href={BYBIT_LINK} target="_blank" rel="noopener noreferrer">
+                    <Icon name="ExternalLink" size={20} className="mr-1" />
+                    {t.bybitBtn}
+                  </a>
+                </Button>
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <p className="text-sm uppercase tracking-wider text-primary-foreground/70">
+                  {t.qrLabel}
+                </p>
+                <img
+                  src={QR_IMAGE}
+                  alt="Bybit QR code"
+                  className="h-40 w-40 rounded-xl bg-white p-2"
+                />
+              </div>
             </div>
 
             <p className="mt-6 flex items-center justify-center gap-2 text-sm text-primary-foreground/70">
