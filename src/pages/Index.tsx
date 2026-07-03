@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const WALLET = '0x6a9a1cf0f6e8112488a28a224ce2bf9657d9b948';
 
-type Lang = 'en' | 'ru';
+type Lang = 'en' | 'ru' | 'zh';
 
 const content = {
   en: {
@@ -103,6 +103,54 @@ const content = {
     footer: '© 2026 Благотворительный фонд «Тёплый Свет». Помогаем открыто.',
     heroImgAlt: 'Руки, держащие тёплый свет',
   },
+  zh: {
+    brand: '暖光',
+    navAbout: '关于我们',
+    navCauses: '项目',
+    navDonate: '捐赠',
+    donateBtn: '捐赠',
+    badge: '用真心做慈善',
+    heroTitle1: '传递温暖',
+    heroTitle2: '给需要帮助的人',
+    heroText:
+      '我们汇聚善良的人们,以诚实透明的方式提供帮助。每一笔 USDT 捐赠都会到达目的地——我们向您展示全过程。',
+    supportBtn: '支持基金会',
+    learnBtn: '了解更多',
+    familiesHelped: '个家庭已获帮助',
+    causesTitle: '我们的项目',
+    causesText: '三大方向,让人们的生活每天都更加温暖。',
+    causes: [
+      {
+        icon: 'Heart',
+        title: '温暖之家',
+        text: '为陷入困境的家庭提供食物、衣物和住所支持。',
+      },
+      {
+        icon: 'BookOpen',
+        title: '知识之光',
+        text: '资助低收入家庭儿童的教育和学习用品。',
+      },
+      {
+        icon: 'Stethoscope',
+        title: '援助之手',
+        text: '为最需要帮助的人筹集治疗和康复资金。',
+      },
+    ],
+    stats: [
+      { value: '1,240+', label: '个家庭获得支持' },
+      { value: '38', label: '个项目已完成' },
+      { value: '100%', label: '报告透明度' },
+    ],
+    donateTitle: '为基金会钱包充值',
+    donateText:
+      '请将 USDT(以太坊 / ERC-20 网络)发送至基金会官方地址。所有捐款均在公开报告中公布。',
+    walletLabel: '钱包地址 · USDT (ERC-20)',
+    copyBtn: '复制地址',
+    copiedBtn: '地址已复制',
+    disclaimer: '捐赠为自愿行为,不可退款',
+    footer: '© 2026 暖光慈善基金会。公开透明地提供帮助。',
+    heroImgAlt: '双手捧着温暖的光',
+  },
 } as const;
 
 export default function Index() {
@@ -148,6 +196,14 @@ export default function Index() {
               }`}
             >
               RU
+            </button>
+            <button
+              onClick={() => setLang('zh')}
+              className={`rounded-full px-3 py-1 transition-colors ${
+                lang === 'zh' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              中文
             </button>
           </div>
           <Button asChild className="rounded-full">
