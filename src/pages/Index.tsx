@@ -44,8 +44,8 @@ const content = {
       },
     ],
     stats: [
-      { value: '1,240+', label: 'families supported' },
-      { value: '38', label: 'projects completed' },
+      { value: '0', label: 'families supported' },
+      { value: '0', label: 'projects completed' },
       { value: '100%', label: 'reporting transparency' },
     ],
     donateTitle: "Top Up the Fund's Wallet",
@@ -96,8 +96,8 @@ const content = {
       },
     ],
     stats: [
-      { value: '1 240+', label: 'семей получили помощь' },
-      { value: '38', label: 'проектов завершено' },
+      { value: '0', label: 'семей получили помощь' },
+      { value: '0', label: 'проектов завершено' },
       { value: '100%', label: 'прозрачность отчётов' },
     ],
     donateTitle: 'Пополнить кошелёк фонда',
@@ -148,8 +148,8 @@ const content = {
       },
     ],
     stats: [
-      { value: '1,240+', label: '个家庭获得支持' },
-      { value: '38', label: '个项目已完成' },
+      { value: '0', label: '个家庭获得支持' },
+      { value: '0', label: '个项目已完成' },
       { value: '100%', label: '报告透明度' },
     ],
     donateTitle: '为基金会钱包充值',
