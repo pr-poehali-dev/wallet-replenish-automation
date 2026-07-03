@@ -26,6 +26,8 @@ const content = {
     familiesHelped: 'families helped',
     causesTitle: 'Our Programs',
     causesText: "Three directions in which we make people's lives warmer every day.",
+    applyBtn: 'Apply',
+    applyHint: 'Activates once the program help limit is reached',
     causes: [
       {
         icon: 'Heart',
@@ -78,6 +80,8 @@ const content = {
     familiesHelped: 'семей с нашей помощью',
     causesTitle: 'Наши программы',
     causesText: 'Три направления, в которых мы делаем жизнь людей теплее каждый день.',
+    applyBtn: 'Заявка',
+    applyHint: 'Активируется при достижении лимита на помощь программ',
     causes: [
       {
         icon: 'Heart',
@@ -130,6 +134,8 @@ const content = {
     familiesHelped: '个家庭已获帮助',
     causesTitle: '我们的项目',
     causesText: '三大方向,让人们的生活每天都更加温暖。',
+    applyBtn: '申请',
+    applyHint: '达到项目援助上限后激活',
     causes: [
       {
         icon: 'Heart',
@@ -301,6 +307,10 @@ export default function Index() {
               </div>
               <h3 className="font-display text-2xl font-semibold">{c.title}</h3>
               <p className="mt-3 text-muted-foreground">{c.text}</p>
+              <Button disabled className="mt-5 w-full rounded-full text-base">
+                {t.applyBtn}
+              </Button>
+              <p className="mt-2 text-center text-xs text-muted-foreground">{t.applyHint}</p>
             </div>
           ))}
         </div>
